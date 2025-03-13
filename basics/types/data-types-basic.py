@@ -9,6 +9,20 @@
 # Binary Types:     bytes, bytearray, memoryview
 # None Type:        NoneType
 
+b = b'abc'
+print(type(b))                                  # <class 'bytes'>
+
+b = bytes([97, 98, 99])                         # Same as above <class 'bytes'>
+print(type(b))
+
+print(rb'\ = solidus')                          # A raw bytes literal, containing a '\'
+
+ba = bytearray([97, 98, 99])                    # Like bytes, can take a sequence of ints
+
+ba[1] = 97                                      # Unlike bytes, contents can be modified
+
+print(ba.decode())                              # Prints 'aac'
+
 i = 100
 print(type(i))                                  # <class 'int'>
 
@@ -93,5 +107,3 @@ Second line
 
 """)                                            # Same as "First line\nSecond line\n" but more readable
                                                 # Comments not allowed on previous lines
-
-
