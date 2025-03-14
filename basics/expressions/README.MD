@@ -2,70 +2,116 @@
 > Syntax for expressions
 
 ### Dictionary Creation
-###### { key: expr, . . . }
+''' 
+    { key: expr, . . . } 
+'''
 
 ### Set creation 
-###### { expr, ... }
+''' 
+    { expr, ... } 
+'''
 
 ### List creation 
-###### [ expr, ... ]
+''' 
+    [ expr, ... ] 
+'''
 
 ### Tuple creation (parentheses recommended, but not always required; at least one comma required), or just parentheses
-###### ( expr, ... )
+''' 
+    ( expr, ... ) 
+'''
 
 ### Function call
-###### f ( expr, ... )
+''' 
+    f ( expr, ... )
+'''
 
 ### Slicing
-###### x [ index: index: step ]
+''' 
+    x [ index: index: step ]
+'''    
 
 ### Indexing 
-###### x [ index ]
+''' 
+    x [ index ]
+'''    
 
 ### Attribute reference 
-###### x . attr
+''' 
+    x . attr
+'''
 
 ### Exponentiation (x to the yth power) 
-###### x ** y
+''' 
+    x ** y
+'''
 
 ### Bitwise NOT, unary plus and minus
-###### ~ x, + x, - x
+''' 
+    ~ x, + x, - x
+'''
 
 ### Multiplication, matrix multiplication, division, floor division, remainder
-###### x * y, x @ y, x / y, x // y, x % y
+''' 
+    x * y, x @ y, x / y, x // y, x % y
+'''
 
 ### Addition, subtraction 
-###### x + y, x - y
+''' 
+    x + y, x - y
+'''    
 
 ### Left-shift, right-shift 
-###### x << y, x >> y
+''' 
+    x << y, x >> y
+'''
 
 ### Bitwise AND 
-###### x & y 	
+''' 
+    x & y 	
+'''
 
 ### Bitwise XOR 
-###### x ^ y
+''' 
+    x ^ y
+'''    
 
 ### Bitwise OR 
-###### x | y
+''' 
+    x | y
+'''    
 
 ### Comparisons (less than, less than or equal, greater than, greater than or equal, inequality, equality)
-###### x < y, x <= y, x > y, x >= y, x != y, x == y
+''' 
+    x < y, x <= y, x > y, x >= y, x != y, x == y
+'''
 
 ### Identity tests 
-###### x is y, x is not y
+''' 
+    x is y, x is not y
+'''
 
 ### Membership tests 
-###### x in y, x not in y
+''' 
+    x in y, x not in y
+'''
 
 ### Boolean NOT 
-###### not x
+''' 
+    not x
+'''
 
 ### Boolean AND 
-###### x and y 	
+''' 
+    x and y 	
+'''
 
 ### Boolean OR 
-###### x or y
+''' 
+    x or y
+'''
 
 ### Conditional expression (or ternary operator) 
-###### x if expr else y
+''' 
+    x if expr else y
+'''
