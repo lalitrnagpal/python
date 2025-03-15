@@ -1,15 +1,18 @@
 
-dictionary: <include:./dictionary/>
+> Links
 
-set: <include:./set/>
+[dictionary: ](./dictionary/README.MD)
 
-list: <include:./list/>
+[set: ](./set/README.MD)
 
-str: <include:./str/>
+[list: ](./list/README.MD)
 
-tuple: <include:./tuple/>
+[str: ](./str/README.MD)
 
-### Just playing with some basic data types
+[tuple: ](./tuple/README.MD)
+
+
+> Just playing with some basic data types
 
 | Types | Examples |
 | :---- | :------: |
@@ -21,6 +24,8 @@ tuple: <include:./tuple/>
 | Boolean Type | bool |
 | Binary Types | bytes, bytearray, memoryview |
 | None Type | NoneType |
+
+> Examples
 
 ```
 b = b'abc'
@@ -76,7 +81,7 @@ print(type(s1))                                 # <class 'str'>
 print(type(s1) is str)                          # True
 ```
 
-#### Use isinstance() rather than type() for a typecheck.Pylint warning!
+> Use isinstance() rather than type() for a typecheck.Pylint warning!
 
 ```
 print(isinstance(s1, str))                      # True
