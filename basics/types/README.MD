@@ -1,3 +1,14 @@
+
+dictionary: <include:./dictionary/>
+
+set: <include:./set/>
+
+list: <include:./list/>
+
+str: <include:./str/>
+
+tuple: <include:./tuple/>
+
 ### Just playing with some basic data types
 
 | Types | Examples |
