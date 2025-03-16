@@ -101,30 +101,41 @@ print( fruits )
 
 > Using **Lists as Stacks**
 
+```
 stack = [3, 4, 5]
 stack.append(6)
 stack.append(7)
 
 stack
 [3, 4, 5, 6, 7]
+```
 
+```
 stack.pop()
 7
 
 stack
 [3, 4, 5, 6]
+```
 
+```
 stack.pop()
 6
+```
 
+```
 stack.pop()
 5
+```
 
+```
 stack
 [3, 4]
+```
 
 > Using **Lists as Queues**
 
+```
 from collections import deque
 
 queue = deque(["Eric", "John", "Michael"])
@@ -140,5 +151,7 @@ queue.popleft()                 # The second to arrive now leaves
 'John'
 
 queue                           # Remaining queue in order of arrival
+
 deque(['Michael', 'Terry', 'Graham'])
+```
 
