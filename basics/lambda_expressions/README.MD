@@ -18,6 +18,17 @@ to **create anonymous functions**.
 list_ = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 print(list_)
 ```
+
+> A lambda function to filter out **even numbers from a list**
+
+```
+my_list = [1, 2, 3, 4, 5]
+
+new_list = list( filter( lambda x: x % 2 != 0, my_list ) )
+
+print( new_list )
+```
+
 > **Simple Examples**
 
 ```
@@ -26,40 +37,79 @@ print("filter_nums():", filter_nums("Geeks101"))
 # Output: filter_nums(): Geeks
 ```
 
+> **A cube lambda example**
+
+```
+cubo = lambda num:num ** 3
+[cubo(x) for x in range(10)]
+
+#Output: [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
+```
+
+> **Just adding a exclamation mark to a sentence**
+
 ```
 do_exclaim = lambda s: s + '!'
 print("do_exclaim():", do_exclaim("I am tired"))
 # Output: do_exclaim(): I am tired!
 ```
 
+> **lambda function gets more helpful when used inside a function**<br>
+We can use lambda function inside **map()**, **filter()**, **sorted()** and many other functions. 
+
+```
+l = ["1", "2", "9", "0", "-1", "-2"]
+print("Sorted numerically:", sorted(l, key=lambda x: int(x)))
+
+#Output: Sorted numerically: ['-2', '-1', '0', '1', '2', '9']
+```
+
+> Add 10 to each str in the list. Added 10 to each item after type and # casting to int, <br>
+then convert items to string again
+
+```
+l = ["1", "2", "9", "0", "-1", "-2"]
+print("Operation on each item using lambda and map()", list(map(lambda x: str(int(x) + 10), l)))
+
+# Output: Operation on each item using lambda and map() ['11', '12', '19', '10', '9', '8']
+```
+
+> **Sum of all digits in a str**
+> str is a sequence of characters. Typecastes n to str, iterates on characters in it <br>
+and type castes to int, all come under a list due to [] which is passed to sum function <br>
+
 ```
 find_sum = lambda n: sum([int(x) for x in str(n)])
+
 print("find_sum():", find_sum(101))
+
 # Output: find_sum(): 2
 ```
 
 > **lambda function**
-
-lambda_list = list( map( lambda x: x * 2, list_) )
-
 > **Map basically iterates every element in the list_ and returns the lambda function result**<br>
 
 ```
+lambda_list = list( map( lambda x: x * 2, list_) )
+
 print(lambda_list)
+
+# Output:
+# [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 ```
 
 > **list comprehension**
 
 ```
 list_comp = [x * 2 for x in list_]
+
 print(list_comp)
 
 # Output:
-# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-# [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 
 ```
+
 
 
 

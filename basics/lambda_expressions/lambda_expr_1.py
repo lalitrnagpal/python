@@ -13,6 +13,7 @@ do_exclaim = lambda s: s + '!'
 print("do_exclaim(): ", do_exclaim("I am tired"))
 # Output: do_exclaim(): I am tired!
 
+# Accepts n as a string and then iterates on all numbers in it and sums them
 find_sum = lambda n: sum([int(x) for x in str(n)])
 print("find_sum(): ", find_sum(101))
 # Output: find_sum(): 2
