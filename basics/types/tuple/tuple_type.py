@@ -32,6 +32,26 @@ print(tup)                                  # Output is ('G', 'e', 'e', 'k', 's'
 tup = (5, 'Welcome', 7, 'Geeks')
 print(tup)                                  # Output is (5, 'Welcome', 7, 'Geeks')
 
+# Iterate Through a Tuple
+# We use the for loop to iterate over the items of a tuple. For example,
+
+fruits = ('apple','banana','orange')
+
+for fruit in fruits:
+    print(fruit)
+
+# **Challenge**: Write a function to modify a tuple by adding an element at the end of it. 
+# For inputs with tuple (1, 2, 3) and element 4, the return value should be (1, 2, 3, 4). 
+# Hint: You need to first convert the tuple to another data type, such as a list.
+
+def modify_tuple(tupl, elem):
+    l = list(tupl)
+    l.append(elem)
+    tup2 = tuple(l)
+    print(tup2)
+
+modify_tuple( (1,2,3), 4 )
+
 # Creating a Tuple with nested tuples
 tup1 = (0, 1, 2, 3)
 tup2 = ('python', 'geek')
@@ -129,34 +149,78 @@ del tup
 
 
 # Built-In Methods for Tuples
-tup = (0, 1, 2, 3, 4)
+tup = (0, 1, True, True, False)
 # Returns true if all element are true or if tuple is empty
-print( tup.all() )
+print( all(tup) )                           # Output - False
 
 # return true if any element of the tuple is true. if tuple is empty, return false
-tup.any( (false, false, true, false ) )
+print( any( (0, 1, True, False) ) )         # Output - True
 
 # Returns length of the tuple or size of the tuple
-print( tup.len() )
+print( len(tup) )                           # Output - 5
 
 # Returns enumerate object of tuple
-print( tup.enumerate() )
+print( enumerate(tup) )                     # Output - <enumerate object at 0x000001522D7E7560>
 
 # return maximum element of given tuple
-print( tup.max() )
+print( max(tup) )                           # Output - 4
 
 # return minimum element of given tuple
-print( tup.min() )
+print( min(tup) )                           # Output - 0
 
 # Sums up the numbers in the tuple
-print( tup.sum() )
+print( sum(tup) )                           # Output - 10
 
 # input elements in the tuple and return a new sorted list
-print( tup.sorted() )
+print( sorted( tup ) )                      # Output - [0, 1, 2, 3, 4]
 
 # Convert an iterable to a tuple.
 a = [1, 2, 3, 4, 5] # list
 
 tup = tuple(a)
 print('tuple:', tup)                        # tuple: (1, 2, 3, 4, 5)
+
+# Unpacking a tuple
+
+# If we don’t need certain values, use _ as a throwaway variable or placeholder:
+# Output 100 300
+
+a, _, c = (100, 200, 300)
+print(a)  
+print(c)  
+
+# Using * for Variable-Length Unpacking
+# Python allows catching multiple elements using *, known as the extended unpacking technique:
+# Output is 1 and [2, 3, 4, 5]
+
+a, *b = (1, 2, 3, 4, 5)
+print(a)   
+print(b)   
+
+# Unpacking Nested Tuples. Tuples inside tuples can also be unpacked.
+nested_tuple = (1, (2, 3), 4)
+a, (b, c), d = nested_tuple
+
+print(a)   # Output 1 
+print(b)   # Output 2
+print(c)   # Output 3
+print(d)   # Output 4
+
+# Tuple Unpacking with * in Function Arguments
+# using *args: When defining a function, *args allows passing multiple arguments as a tuple
+
+def add(*args):
+    return sum(args)
+
+print(add(1, 2, 3, 4))      # Output is 10
+
+# Using * for Argument Unpacking: Tuple unpacking can also be used when calling a function:
+
+def add(a, b, c):
+    return a + b + c
+
+nums = (1, 2, 3)
+print(add(*nums))  
+
+
 
