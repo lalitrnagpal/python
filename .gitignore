@@ -1,5 +1,6 @@
-basics/classes/__pycache__/**
-basics/core/__pycache__/**
-basics/.venv
-basics/.venv/**
-basics/.venv/**/*
+.venv
+.venv//**
+.venv//**/*
+.classes/__pycache__
+.classes/__pycache__//**
+.classes/__pycache__//**/*

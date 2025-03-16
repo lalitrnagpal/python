@@ -1,5 +1,21 @@
 # Lambda Expressions
 
+> ***Syntax***
+
+```
+lambda argument(s) : expression 
+```
+
+>Example:
+
+```
+greet_user = lambda name : print('Hey there,', name)
+# Call the lambda
+greet('Dolly')                     # Output- Hey there, Dolly
+```
+
+
+
 > An **anonymous function** means that a **function** is **without a name**. <br>
 def keyword is used to define the normal functions and the **lambda keyword** is used <br>
 to **create anonymous functions**.
@@ -11,6 +27,37 @@ to **create anonymous functions**.
 2. One is free to use lambda functions wherever function objects are required.<br>
 3. You need to keep in your knowledge that lambda functions are syntactically restricted to a single expression.<br>
 4. It has various uses in particular fields of programming, besides other types of expressions in functions.<br>
+
+> Simple Examples
+
+> Multiply two numbers
+```
+x = lambda a, b : a * b
+print(x(5, 6))                      # Output 30
+```
+
+> Add 3 numbers
+
+```
+x = lambda a, b, c : a + b + c
+print(x(5, 6, 2))                   # Output 13
+```
+
+> The power of lambda is better shown when you use them as an anonymous function inside another function.<br>
+Say you have a function definition that takes one argument, and that argument will be multiplied with an unknown number:
+
+```
+def myfunc(n):
+  return lambda a : a * n
+
+mydoubler = myfunc(2)
+
+print(mydoubler(11))                # Output 22
+```
+
+> Use lambda functions when an anonymous function is required for a short period of time.
+
+
 
 > list from range 0 to 10
 
