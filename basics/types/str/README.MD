@@ -1,7 +1,9 @@
 
+# str
+
 > Immutable
 
-# String objects (both str and bytes) are immutable: attempting to rebind or delete an item or slice of a string raises an exception. 
+> String objects (both str and bytes) are immutable: attempting to rebind or delete an item or slice of a string raises an exception. 
 
 > Items of a text string (each of the characters in the string) are themselves text strings, each of length 1
 

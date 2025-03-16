@@ -1,48 +1,69 @@
-# Tuple objects are immutable: therefore, attempting to rebind or 
-# delete an item or slice of a tuple raises an exception. 
+# Tuple
 
-# Items of a tuple are arbitrary objects and may be of different types; 
-# tuple items may be mutable, but we recommend not mutating them
+> Tuple objects are immutable: therefore, attempting to rebind or delete an item or slice of a tuple raises an exception. 
 
-# Slices of a tuple are also tuples. Tuples have no normal (nonspecial) 
-# methods, except count and index, with the same meanings as for lists
+> Items of a tuple are arbitrary objects and may be of different types; tuple items may be mutable, but we recommend not mutating them
 
-# Tuples are similar to lists, but unlike lists, they cannot be changed 
-# after their creation (i.e., they are immutable).
+> Slices of a tuple are also tuples. Tuples have no normal (nonspecial) methods, except count and index, with the same meanings as for lists
 
-# Main characteristics are being ordered , heterogeneous & immutable.
+> Tuples are similar to lists, but unlike lists, they cannot be changed after their creation (i.e., they are immutable).
 
-# Creating an empty Tuple
+> Main characteristics are being ordered , heterogeneous & immutable.
+
+> Creating an empty Tuple
+
+```
 tup = ()
 print(tup)                                  # Output is ()
+```
 
-# Using String
+> Using String
+
+```
 tup = ('Geeks', 'For')
 print(tup)                                  # Output is ('Geeks', 'For')
+```
 
-# Using List
+> Using List
+
+```
 li = [1, 2, 4, 5, 6]
 print(tuple(li))                            # Output is (1, 2, 4, 5, 6)
+```
 
-# Using Built-in Function
+> Using Built-in Function
+
+```
 tup = tuple('Geeks')    
 print(tup)                                  # Output is ('G', 'e', 'e', 'k', 's')
+```
 
-# Creating a Tuple with Mixed Datatype
+> Creating a Tuple with Mixed Datatype
+
+```
 tup = (5, 'Welcome', 7, 'Geeks')
 print(tup)                                  # Output is (5, 'Welcome', 7, 'Geeks')
+```
 
-# Creating a Tuple with nested tuples
+> Creating a Tuple with nested tuples
+
+```
 tup1 = (0, 1, 2, 3)
 tup2 = ('python', 'geek')
 tup3 = (tup1, tup2)
 print(tup3)                                 # Output is ((0, 1, 2, 3), ('python', 'geek'))
+```
 
-# Creating a Tuple with repetition
+> Creating a Tuple with repetition
+
+```
 tup1 = ('Geeks',) * 3
 print(tup1)                                 # Output is ('Geeks', 'Geeks', 'Geeks')
+```
 
-# Creating a Tuple with the use of loop
+> Creating a Tuple with the use of loop
+
+```
 tup = ('Geeks')
 n = 5
 for i in range(int(n)):
@@ -55,108 +76,173 @@ for i in range(int(n)):
 # ((('Geeks',),),)
 # (((('Geeks',),),),)
 # ((((('Geeks',),),),),)
+```
 
-# Accessing Tuple with Indexing
+> Accessing Tuple with Indexing
+
+```
 tup = tuple("Geeks")
 print(tup[0])                               # Output is G
+```
 
-# Accessing a range of elements using slicing
+> Accessing a range of elements using slicing
+
+```
 print(tup[1:4])                             # Output is ('e', 'e', 'k')
 print(tup[:3])                              # Output is ('G', 'e', 'e')
+```
 
-# Tuple unpacking
+> Tuple unpacking
+
+```
 tup = ("Geeks", "For", "Geeks")
+```
 
-# This line unpack values of Tuple1
+> This line unpack values of Tuple1
+
+```
 a, b, c = tup
 print(a)                            # Output is Geeks
 print(b)                            # Output is for
 print(c)                            # Output is Geeks
+```
 
+```
 y = (1, 2, 3)
 print(type(y))                      # output is <class 'tuple'>
 print(type(y).__name__)             # output is tuple
+```
 
+```
 y = ((1, 2,), (3, 4), (5, 6))
 print(type(y).__name__)             # output is tuple
 print(y[1])                         # output is (3, 4) on index 1
 print(type(y[1]).__name__)          # output is tuple
+```
 
+```
 # TypeError: 'tuple' object doesn't support item deletion
 # del y[1]
 
 # TypeError: 'tuple' object does not support item assignment
 # y[1] = (7, 8)
+```
 
-# Returns the number of times a specified value occurs in a tuple. Output is 1
+> Returns the number of times a specified value occurs in a tuple. Output is 1
+
+```
 print( y.count((3,4)) )
+```
 
-# Searches the tuple and returns  position of where it was found. Output is 1
+> Searches the tuple and returns  position of where it was found. Output is 1
+
+```
 print(y.index((3,4)))
+```
 
+> Concatenation of Tuples
 
-# Concatenation of Tuples
-
+```
 tup1 = (0, 1, 2, 3)
 tup2 = ('Geeks', 'For', 'Geeks')
+```
 
+```
 tup3 = tup1 + tup2
 print(tup3)
 # Output is (0, 1, 2, 3, 'Geeks', 'For', 'Geeks')
+```
 
+> Slicing of a Tuple with Numbers
 
-# Slicing of a Tuple with Numbers
+```
 tup = tuple('GEEKSFORGEEKS')
+```
 
-# Removing First element
+> Removing First element
+
+```
 # Output is ('E', 'E', 'K', 'S', 'F', 'O', 'R', 'G', 'E', 'E', 'K', 'S')
 print(tup[1:])
+```
 
-# Reversing the Tuple
+> Reversing the Tuple
+
+```
 # Output is ('S', 'K', 'E', 'E', 'G', 'R', 'O', 'F', 'S', 'K', 'E', 'E', 'G')
 print(tup[::-1])
+```
 
-# Printing elements of a Range
+> Printing elements of a Range
+
+```
 # Output is ('S', 'F', 'O', 'R', 'G')
 print(tup[4:9])
+```
 
-# Deleting a Tuple. Printing of Tuple after deletion results in an Error. 
+> Deleting a Tuple. Printing of Tuple after deletion results in an Error. 
 
+```
 tup = (0, 1, 2, 3, 4)
 del tup
 # Below print will result in error - name 'tup' is not defined. Did you mean: 'tup1'?
 # print(tup)                        
+```
 
-
-# Built-In Methods for Tuples
+> Built-In Methods for Tuples
+```
 tup = (0, 1, 2, 3, 4)
 # Returns true if all element are true or if tuple is empty
 print( tup.all() )
+```
 
-# return true if any element of the tuple is true. if tuple is empty, return false
+> return true if any element of the tuple is true. if tuple is empty, return false
+
+```
 tup.any( (false, false, true, false ) )
+```
 
-# Returns length of the tuple or size of the tuple
+> Returns length of the tuple or size of the tuple
+
+```
 print( tup.len() )
+```
 
-# Returns enumerate object of tuple
+> Returns enumerate object of tuple
+
+```
 print( tup.enumerate() )
+```
 
-# return maximum element of given tuple
+> return maximum element of given tuple
+
+```
 print( tup.max() )
+```
 
-# return minimum element of given tuple
+> return minimum element of given tuple
+
+```
 print( tup.min() )
+```
 
-# Sums up the numbers in the tuple
+> Sums up the numbers in the tuple
+
+```
 print( tup.sum() )
+```
 
-# input elements in the tuple and return a new sorted list
+> input elements in the tuple and return a new sorted list
+
+```
 print( tup.sorted() )
+```
 
-# Convert an iterable to a tuple.
+> Convert an iterable to a tuple.
+
+```
 a = [1, 2, 3, 4, 5] # list
 
 tup = tuple(a)
 print('tuple:', tup)                        # tuple: (1, 2, 3, 4, 5)
-
+```
