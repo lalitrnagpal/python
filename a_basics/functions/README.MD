@@ -248,18 +248,19 @@ def g(x, *a, b=23, **k): 			            # b is keyword only
 g(1, 2, 3, c=99) 				                # Returns (1, (2, 3), 23, {'c': 99})
 ```
 
-> [!IMPORTANT]
+> [!NOTE] [!IMPORTANT]
+
 ---
 
-1. Arguments of the form \*expression are internally replaced by a sequence of positional arguments obtained by iterating over expression.
+1. Arguments of the form **\*expression** are internally **replaced by a sequence of positional arguments** obtained by **iterating over expression**.
 
-2. Arguments of the form \*\*expression are internally replaced by a sequence of keyword arguments whose names and values are obtained by iterating over expression’s items().
+2. Arguments of the form **\*\*expression** are internally **replaced by a sequence of keyword arguments** whose names and values are **obtained by iterating over expression’s items()**.
 
-3. Say that the function has N positional parameters and the call has M positional arguments:
+3. Say that the function has **N positional parameters** and the **call has M positional arguments**:
 
-   1. When M≤N, bind all the positional arguments to the first M positional parameter names; the remaining positional parameters, if any, must be matched by named arguments.
+   1. When **M ≤ N**, bind all the **positional arguments to the first M positional parameter** names; the **remaining positional parameters, if any, must be matched by named arguments**.
 
-   2. When M>N, bind the remaining positional arguments to named parameters in the order in which they appear in the signature. This process terminates in one of three ways:
+   2. When **M > N**, bind the **remaining positional arguments to named parameters in the order in which they appear in the signature**. This process terminates in one of three ways:
 
        1. All positional arguments have been bound.
 
@@ -267,18 +268,22 @@ g(1, 2, 3, c=99) 				                # Returns (1, (2, 3), 23, {'c': 99})
 
        3. The next item in the signature is a \*name argument collector: the remaining positional arguments are collected in a tuple that is then bound to name in the function call namespace.
 
-4. The named arguments are then matched, in the order of the arguments’ occurrences in the call, by name with the parameters—both positional and named.
+4. The **named arguments are then matched, in the order of the arguments’ occurrences in the call**, by name with the parameters—both positional and named.
 
     Attempts to rebind an already bound parameter name raise a TypeError exception.
 
-5. If unmatched named arguments remain at this stage:
+5. If **unmatched named arguments remain at this stage**:
 
-    1. When the function signature includes a \*\*name collector, the interpreter creates a dictionary with key/value pairs (argument's_name, argument's_value), and binds it to name in the function call namespace.
+    1. When the **function signature includes a \*\*name collector, the interpreter creates a dictionary with key/value pairs (argument's_name, argument's_value), and binds it to name in the function call namespace**.
 
-    2. In the absence of such an argument collector, Python raises a TypeError exception.
+    2. In the absence of such an argument collector, Python raises a **TypeError exception**.
 
-6. Any remaining unmatched named parameters are bound to their default values.
+6. Any **remaining unmatched named parameters are bound to their default values**.
+
 ---
+
+
+
 
 
 
