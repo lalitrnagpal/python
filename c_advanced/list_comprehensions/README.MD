@@ -155,6 +155,24 @@ print( [str(round(pi, i)) for i in range(1, 6)] )
 # Output is ['3.1', '3.14', '3.142', '3.1416', '3.14159']
 ```
 
+> **Convert a nested list into a flat list**
+
+```
+# Original list
+lis = [[11, 22, 33, 44], [55, 66, 77], [88, 99, 100]]
+
+# iterate through the sublist using List comprehension
+flatList = [element for innerList in lis for element in innerList]
+
+# printing original list
+print('List', lis)
+# Output: # List [[11, 22, 33, 44], [55, 66, 77], [88, 99, 100]]
+
+# printing flat list
+print('Flat List', flatList)
+# Output: # Flat List [11, 22, 33, 44, 55, 66, 77, 88, 99, 100]
+```
+
 > **Nested List Comprehensions**. The initial expression in a list comprehension can be any arbitrary <br>
 expression, including another list comprehension. Consider the following example of a 3x4 matrix <br> 
 implemented as a list of 3 lists of length 4: <br>
