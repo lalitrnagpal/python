@@ -23,7 +23,7 @@ def twice(x):
 ```
 
 > **Parameters**
->
+
 > **Mutable default parameter values**
  
 When a named parameter’s default value is a mutable object, and the function body alters the parameter, things get tricky
@@ -250,6 +250,7 @@ g(1, 2, 3, c=99) 				                # Returns (1, (2, 3), 23, {'c': 99})
 
 > [!NOTE] [!IMPORTANT]
 
+<details open>
 ---
 
 1. Arguments of the form **\*expression** are internally **replaced by a sequence of positional arguments** obtained by **iterating over expression**.
@@ -281,19 +282,72 @@ g(1, 2, 3, c=99) 				                # Returns (1, (2, 3), 23, {'c': 99})
 6. Any **remaining unmatched named parameters are bound to their default values**.
 
 ---
+</details>
 
+> **Argument Passing**
 
+All argument passing in Python is by value 
 
+Passing a mutable object as an argument, however, allows the function to make changes to that object, because Python passes a reference to the object itself, not a copy. Rebinding a variable and mutating an object are totally disjoint concepts
 
+```
+def f(x, y):
+   x = 23
+   y.append(42)
 
+a = 77
+b = [99]
 
+f(a, b)
+print(a, b) 	# prints: 77 [99, 42]
+```
 
+> **Namespace**
 
+> Local Variables
 
+A function’s parameters, plus any names that are bound (by assignment or by other binding statements, such as def) in the function body, make up the function’s local namespace, also known as its local scope. Each of these variables is known as a  local variable of the function
 
+Variables that are not local are known as global variables 
 
+Whenever a function’s local variable has the same name as a global variable, that name, within the function body, refers to the local variable, not the global one. 
 
+> Global Variables/ Global statement
 
+where identifiers is one or more identifiers separated by commas (,). The identifiers listed in a global statement refer to the global variables (i.e., attributes of the module object) that the function needs to bind or rebind. For example, the function counter could be implemented using **global** and a **global** variable, rather than an attribute of the function object:
+
+```
+_count = 0
+
+def counter():
+   global _count
+   _count += 1
+   return _count
+```
+
+Without the global statement, the counter function would raise an UnboundLocalError exception when called, because _count would then be an uninitialized (unbound) local variable. 
+
+While the global statement enables this kind of programming, this style is inelegant and ill-advised.
+
+> Nested Functions
+
+A def statement within a function body defines a nested function, and the function whose body includes the def is known as an outer function to the nested one. 
+
+Code in a nested function’s body may access (but not rebind) local variables of an outer function, also known as free variables of the nested function.
+
+```
+def percent1(a, b, c):
+   def pc(x, total = a + b + c):
+      return ( x * 100.0 ) / total
+   print('Percentages are:', pc(a), pc(b), pc(c))
+
+Here’s the same functionality using nested scopes:
+
+def percent2(a, b, c):
+   def pc(x):
+      return ( x * 100.0 ) / ( a + b + c)
+   print('Percentages are:', pc(a), pc(b), pc(c))
+```
 
 
 
