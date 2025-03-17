@@ -70,4 +70,62 @@ for i in updown(3):
 
 ### Generators as near-coroutines
 
+> Generators are further enhanced with the possibility of receiving a value (or an exception) back from the caller as each yield executes. This lets generators implement coroutines, as explained in PEP 342. When a generator object resumes (i.e., you call next on it), the corresponding yield’s value is None. To pass a value x into some generator object g (so that g receives x as the value of the yield on which it’s suspended), instead of calling next(g), call g.send(x) (g.send(None) is just like next(g)).
+
+#### Generator Expressions
+
+> Python offers an even simpler way to code particularly simple generators: generator expressions, commonly known as genexps. The syntax of a genexp is just like that of a list comprehension 
+
+> The semantics of a genexp are the same as those of the corresponding list comprehension, except that a genexp produces an iterator yielding one item at a time, while a list comprehension produces a list of all results in memory
+
+> For example, to sum the squares of all single-digit integers, you could code sum([x\*x for x in range(10)]), but you can express this better as sum(x\*x for x in range(10)) (just the same, but omitting the brackets): you get the same result but consume less memory. The parentheses that indicate the function call also do “double duty” and enclose the genexp. Parentheses are, however, required when the genexp is not the sole argument
+
+> Don’t Iterate over a Generator Multiple Times
+
+A limitation of generators and generator expressions is that you can iterate over them only once. Calling next on a generator that has been consumed will just raise StopIteration again, which most functions will take as an indication that the generator returns no values. 
+
+```
+# create a generator and list its items and their sum
+squares = (x*x for x in range(5))
+
+print(list(squares)) 			# prints [0, 1, 4, 9, 16]
+
+print(sum(squares)) 			# Bug! Prints 0
+```
+
+You can write code to guard against accidentally iterating over a consumed generator by using a class to wrap the generator, like the following: class ConsumedGeneratorError(Exception):
+
+```
+"""Raised if a generator is accessed after already consumed.
+"""
+class StrictGenerator:
+   """Wrapper for generator that will only permit it
+   to be consumed once. Additional accesses will
+   raise ConsumedGeneratorError.
+   """
+   def __init__(self, gen):
+      self._gen = gen
+      self._gen_consumed = False
+   def __iter__(self):
+      return self
+   def __next__(self):
+      try:
+         return next(self._gen)
+      except StopIteration:
+         if self._gen_consumed:
+            raise ConsumedGeneratorError() from None
+         self._gen_consumed = True
+         raise
+```
+
+Now an erroneous reuse of a generator will raise an exception:
+
+```
+squares = StrictGenerator( x*x for x in range(5) )
+
+print( list(squares) ) 					# prints: [0, 1, 4, 9, 16]
+
+print( sum(squares) ) 					# raises ConsumedGeneratorError
+```
+
 
